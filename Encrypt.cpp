@@ -1,10 +1,10 @@
 // Aleksey Leshchuk
 // CISP400 AD2 Encrypt class file
 
-#include <string>
 #include <iostream>
 #include "Encrypt.h"
 
+// constructor takes a 4 digit number
 Encrypt(int const& inpNum);
 Encrypt(int const* inp_arr);
 void Encrypt::displayOriginalData() const;
