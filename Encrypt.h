@@ -8,7 +8,7 @@ class Encrypt{
 	void displayOriginalData() const;
 	void displayEncryptedData() const;
 	int getEncryptedData() const;
-	void storeDate(int const& plain_text);
+	void storeData(int const& plain_text);
     private:
 	int dataArray[8];
 };
