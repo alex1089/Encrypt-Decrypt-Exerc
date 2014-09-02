@@ -71,7 +71,9 @@ void Encrypt::encryptData(){
 }
 template <int SIZE>
 void Encrypt::processZeroOrNegArray(int const (&inp_arr)[SIZE]){
-    std::cout<<SIZE; 
+    std::cout<<setw(6)<<"XXXXX The number entered is less than or equal to 0.\n";
+    std::cout<<std::setw(12)<<"The number is reset to 9436.\n";
+    storeData(9436);
 }
 int main(){
     int array[]{1,2,4,4,1,6,7,2,1,4};
