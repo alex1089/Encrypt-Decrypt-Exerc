@@ -2,6 +2,7 @@
 // CISP400 AD2 Encrypt class file
 
 #include <iostream>
+#include <iomanip>
 #include "Encrypt.h"
 
 // constructor takes a 4 digit number
@@ -33,7 +34,7 @@ void Encrypt::displayEncryptedData() const{
     std::cout<<"\tThe encrypted data is ";
     for (int i=0;i<4;i++)
 	std::cout<<" "<<dataArray[i];
-    std::cout<<".\n";
+    std::cout<<".\n\n";
 }
 int Encrypt::getEncryptedData() const{
     int output=dataArray[0];
@@ -71,8 +72,8 @@ void Encrypt::encryptData(){
 }
 template <int SIZE>
 void Encrypt::processZeroOrNegArray(int const (&inp_arr)[SIZE]){
-    std::cout<<setw(6)<<"XXXXX The number entered is less than or equal to 0.\n";
-    std::cout<<std::setw(12)<<"The number is reset to 9436.\n";
+    std::cout<<std::setw(55)<<"XXXXX The number entered is less than or equal to 0.\n";
+    std::cout<<std::setw(43)<<"The number is reset to 9436. XXXXX\n\n";
     storeData(9436);
 }
 int main(){
