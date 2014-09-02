@@ -19,10 +19,10 @@ Encrypt::Encrypt(int const(&inp_arr)[N]){
 
     std::cout<<".**\n\n";
 
-    //if (inp_arr[0]<=0)
-	processZeroOrNegArray(inp_arr);
-    //else
-//	processPosArray(inp_arr);
+    if (inp_arr[0]<=0)
+	processZeroOrNegArray();
+    else
+	processPosArray(inp_arr);
 }
 void Encrypt::displayOriginalData() const{
     std::cout<<"\tThe original data is ";
@@ -48,7 +48,7 @@ void Encrypt::storeData(int const& number){
     for (int i=7;i>3;i--){
 	dataArray[i]=temp%10;
 	temp/=10;
-    }
+	}
     encryptData();
 }
 void Encrypt::encryptData(){
@@ -70,14 +70,22 @@ void Encrypt::encryptData(){
     displayOriginalData();
     displayEncryptedData();
 }
-template <int SIZE>
-void Encrypt::processZeroOrNegArray(int const (&inp_arr)[SIZE]){
+void Encrypt::processZeroOrNegArray(){
     std::cout<<std::setw(55)<<"XXXXX The number entered is less than or equal to 0.\n";
     std::cout<<std::setw(43)<<"The number is reset to 9436. XXXXX\n\n";
     storeData(9436);
 }
+template <int SIZE>
+void Encrypt::processPosArray(int const(&inp_arr)[SIZE]){
+    int converted=inp_arr[0];	// variable to contain converted array to int
+    for (int i=0;i<SIZE && i<4;i++){
+	converted=converted*10+inp_arr[i];
+    }
+
+    storeData(converted);
+}
 int main(){
-    int array[]{1,2,4,4,1,6,7,2,1,4};
+    int array[]{-2,2,4,4,1,6,7,2,1,4};
     Encrypt test{array};
 }
 
