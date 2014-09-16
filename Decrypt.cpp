@@ -71,8 +71,3 @@ void Decrypt::decrypt(){
 	data[i]+=3;
 }
 
-int main(){
-    int testArray[]={3,5,1,6,8};
-    Decrypt tDecrypt{testArray};
-}
-
