@@ -2,8 +2,6 @@
 // Decrypt class header
 // Aleksey Leshchuk 9.14.2014
 
-#include <array>
-
 class Decrypt {
     public:
 	Decrypt(int const *inputArray);

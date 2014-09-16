@@ -14,8 +14,8 @@ using std::atoi;
 int main()
 {  int Long[]={1,2,3,4,5,6,7,8};
 int Negative[]={-8,7,6,5,4,3,2,1};
-   Encrypt eapp1(0), eapp2(40), eapp3(4560), eapp4(6145698),eapp5(-6), eapp6(Long), eapp7(Negative); // create Encrypt objects  
-   Decrypt dapp1(0), dapp2(40), dapp3(4560), dapp4(6145698), dapp5(-6), dapp6(Long), dapp7(Negative); // create Decrypt objects  
+   Encrypt eapp1(0), eapp2(40), eapp3(4560), eapp4(6145698),eapp5(-6),eapp6(Long), eapp7(Negative); // create Encrypt objects  
+   Decrypt dapp1(0), dapp2(40), dapp3(4560), dapp4(6145698), dapp5(-6),dapp6(Long), dapp7(Negative); // create Decrypt objects  
   
    cout<<endl<< "Reset the eapp1's data to 100." << endl<<endl;// display the reset title for eapp1.
    eapp1.storeData(100);// call eapp1's storeData function
