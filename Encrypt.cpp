@@ -12,8 +12,7 @@ Encrypt::Encrypt(int const& inpNum){
     displayOriginalData();
     displayEncryptedData();
 }
-template <int N>
-Encrypt::Encrypt(int const(&inp_arr)[N]){
+Encrypt::Encrypt(int const *inp_arr){
     int convertedArr;
     convertedArr=processArray(inp_arr);
     std::cout<<"*E* The encrypt array constructor is called\n\tand the passed in number is "<< convertedArr<<".**\n\n";
@@ -74,10 +73,9 @@ void Encrypt::encryptData(){
     dataArray[3]=temp_holder;
     
 }
-template <int SIZE>
-int Encrypt::processArray(int const(&inp_arr)[SIZE]){
+int Encrypt::processArray(int const *inp_arr){
     int converted=inp_arr[0];	// variable to contain converted array to int
-    for (int i=0;i<SIZE && i<4;i++){
+    for (int i=0;i<4 && i<4;i++){
 	converted=converted*10+inp_arr[i];
     }
 

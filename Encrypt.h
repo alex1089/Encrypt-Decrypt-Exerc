@@ -4,15 +4,13 @@
 class Encrypt{
     public:
 	Encrypt(int const& inpNum);
-	template <int N>
-	Encrypt(int const (&inp_arr)[N]);
+	Encrypt(int const *inp_arr);
 	void displayOriginalData() const;
 	void displayEncryptedData() const;
 	int getEncryptedData() const;
 	void storeData(int const& plain_text);
     private:
-	template <int SIZE>
-	int processArray(int const(&inp_arr)[SIZE]);
+	int processArray(int const *inp_arr);
 	void encryptData();
 	int dataArray[8];
 };

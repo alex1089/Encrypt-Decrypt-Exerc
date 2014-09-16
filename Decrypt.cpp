@@ -3,11 +3,9 @@
 // Aleksey Leshchuk 9.14.2014
 
 #include <iostream>
-#include <array>
 #include "Decrypt.h"
 
-template<int SIZE>
-Decrypt::Decrypt(int const (&inputArray)[SIZE]){
+Decrypt::Decrypt(int const *inputArray){
     int convNum=processArray(inputArray);
     std::cout<<"*D* Decrypt array constructor is called\n"
 	<<"    and the passed in number is "<<convNum<<".**\n\n";
@@ -50,10 +48,9 @@ int Decrypt::getDecryptedData() const {
 	converted=converted*10+data[i];
     return converted;
 }
-template<int SIZE>
-int Decrypt::processArray(int const (&inArray)[SIZE]) const{
+int Decrypt::processArray(int const *inArray) const{
     int num=inArray[0];
-    for (int i=1;i<SIZE;i++){
+    for (int i=1;i<4;i++){
 	num= num*10+inArray[i];
     }
     return num;

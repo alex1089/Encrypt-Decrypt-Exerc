@@ -6,8 +6,7 @@
 
 class Decrypt {
     public:
-	template<int SIZE>
-	Decrypt(int const (&inputArray)[SIZE]);
+	Decrypt(int const *inputArray);
 	Decrypt(int const &inpNum);
 	void displayOriginalData()const ;
 	void storeData(int const &number);
@@ -15,7 +14,6 @@ class Decrypt {
 	int getDecryptedData()const ;
     private:
 	int data[8];
-	template<int SIZE>
-	int processArray(int const (&inArray)[SIZE]) const;
+	int processArray(int const *inArray) const;
 	void decrypt();
 };
