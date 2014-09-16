@@ -9,21 +9,21 @@
 Encrypt::Encrypt(int const& inpNum){
     std::cout<<"*E* The Encrypt constructor is called\n\tand the passed in number is "<<inpNum<<".**\n\n";
     storeData(inpNum);
+    displayOriginalData();
+    displayEncryptedData();
 }
 template <int N>
 Encrypt::Encrypt(int const(&inp_arr)[N]){
-    std::cout<<"*E* The encrypt array constructor is called\n\tand the passed in number is ";
+    int convertedArr;
+    convertedArr=processArray(inp_arr);
+    std::cout<<"*E* The encrypt array constructor is called\n\tand the passed in number is "<< convertedArr<<".**\n\n";
 
-    for (int i=0;i<N;i++)
-	std::cout<<inp_arr[i];
+    storeData(convertedArr);
 
-    std::cout<<".**\n\n";
-
-    if (inp_arr[0]<=0)
-	processZeroOrNegArray();
-    else
-	processPosArray(inp_arr);
+    displayOriginalData();
+    displayEncryptedData();
 }
+
 void Encrypt::displayOriginalData() const{
     std::cout<<"\tThe original data is ";
     for (int i=4;i<8;i++)
@@ -45,7 +45,13 @@ int Encrypt::getEncryptedData() const{
 }
 void Encrypt::storeData(int const& number){
     int temp=number;	// stores input number for manipulation
-    for (int i=7;i>3;i--){
+    if (number<=0){ // if number passed in is less than or equal to zero, reset it to 9436
+	std::cout<<" XXX The number you entered is less than or equal to 0.\n"
+	    <<"\tThe number is reset to 9436. XXX\n\n";
+	temp=9436;
+    }
+    
+    for (int i=7;i>3;i--){ // store input number into last 4 elements of dataArray
 	dataArray[i]=temp%10;
 	temp/=10;
 	}
@@ -67,25 +73,13 @@ void Encrypt::encryptData(){
     dataArray[1]=dataArray[3];
     dataArray[3]=temp_holder;
     
-    displayOriginalData();
-    displayEncryptedData();
-}
-void Encrypt::processZeroOrNegArray(){
-    std::cout<<std::setw(55)<<"XXXXX The number entered is less than or equal to 0.\n";
-    std::cout<<std::setw(43)<<"The number is reset to 9436. XXXXX\n\n";
-    storeData(9436);
 }
 template <int SIZE>
-void Encrypt::processPosArray(int const(&inp_arr)[SIZE]){
+int Encrypt::processArray(int const(&inp_arr)[SIZE]){
     int converted=inp_arr[0];	// variable to contain converted array to int
     for (int i=0;i<SIZE && i<4;i++){
 	converted=converted*10+inp_arr[i];
     }
 
-    storeData(converted);
+    return converted;
 }
-int main(){
-    int array[]{-2,2,4,4,1,6,7,2,1,4};
-    Encrypt test{array};
-}
-

@@ -11,9 +11,8 @@ class Encrypt{
 	int getEncryptedData() const;
 	void storeData(int const& plain_text);
     private:
-	void processZeroOrNegArray();
 	template <int SIZE>
-	void processPosArray(int const(&inp_arr)[SIZE]);
+	int processArray(int const(&inp_arr)[SIZE]);
 	void encryptData();
 	int dataArray[8];
 };

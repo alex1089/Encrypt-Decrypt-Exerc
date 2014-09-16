@@ -6,14 +6,16 @@
 
 class Decrypt {
     public:
-	template <int SIZE>
-	Decrypt(std::array<int, SIZE> const inputArray);
-	Decrypt(int& const inpNum);
+	template<int SIZE>
+	Decrypt(int const (&inputArray)[SIZE]);
+	Decrypt(int const &inpNum);
 	void displayOriginalData()const ;
-	void storeData(int& const  number);
+	void storeData(int const &number);
 	void displayDecryptedData()const ;
 	int getDecryptedData()const ;
     private:
-	std::array inputArray;
-	void decrypt(int& const num);
-}
+	int data[8];
+	template<int SIZE>
+	int processArray(int const (&inArray)[SIZE]) const;
+	void decrypt();
+};
